@@ -1,0 +1,11 @@
+<div class="new-game-container">
+    <h2>Actualizar Juego</h2>
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/dashboard/games">Juegos</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Actualizar juego</li>
+    </ol>
+  </nav>
+  <app-game-form [gameForm]="gameForm" (save)="onUpdateGame($event)"></app-game-form>
+</div>

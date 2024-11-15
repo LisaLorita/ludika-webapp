@@ -1,0 +1,27 @@
+<div class="search-container d-flex align-items-center mb-3 justify-content-between">
+    <div class="d-flex align-items-center">
+        <input
+            type="text"
+            [(ngModel)]="searchTerm"
+            placeholder="Buscar por nombre..."
+            class="form-control me-2"
+        />
+        <button (click)="searchGame()" class="btn btn-dashboard ">Buscar</button>
+    </div>
+
+    <button
+        *ngIf="isAdmin"
+        class="btn btn-dashboard"
+        routerLink="/dashboard/games/newGame"
+    >Crear nuevo juego</button>
+</div>
+
+<div class="container pt-2 card-cont">
+    <div class="row"> 
+        <div *ngFor="let game of games" class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <games-game-card [game]="game" [isFavorite]="isFavorite(game.id)" (toggleFavorite)="onToggleFavorite(game)"></games-game-card>
+        </div>
+    </div>
+</div>
+
+

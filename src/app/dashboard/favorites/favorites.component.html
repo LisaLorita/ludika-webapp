@@ -1,0 +1,13 @@
+<div class="container pt-2">
+  <div class="row">
+    <div
+      *ngFor="let game of favorites"
+      class="col-12 col-sm-6 col-md-4 col-lg-3">
+      <games-game-card 
+        [game]="game" 
+        [isFavorite]="true"
+        (toggleFavorite)="onToggleFavorite(game)">
+      </games-game-card>
+    </div>
+  </div>
+</div>

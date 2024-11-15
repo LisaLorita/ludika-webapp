@@ -1,0 +1,38 @@
+<div class="container-auth">
+  <form class="auth100-form" autocomplete="off" [formGroup]="myForm" (ngSubmit)="register()">
+    <span class="form-title">Registro</span>
+
+    <div class="wrap-input100">
+      <span class="label-input100">Nombre de usuario</span>
+      <input class="input100" type="text" formControlName="name" placeholder="Usuario">
+      <span class="focus-input100"></span>
+    </div>
+
+    <p class="error-message" *ngIf="showError">Nombre de usuario ya existe</p>
+
+    <div class="wrap-input100 m-b-23">
+      <span class="label-input100">Correo</span>
+      <input class="input100" type="email" formControlName="email" placeholder="Correo electrónico">
+      <span class="focus-input100"></span>
+    </div>
+
+    <p class="error-message" *ngIf="showError">Correo electrónico ya existe</p>
+
+    <div class="wrap-input100">
+      <span class="label-input100">Contraseña</span>
+      <input class="input100" type="password" formControlName="password" placeholder="Ingrese una contraseña">
+      <span class="focus-input100"></span>
+    </div>
+
+    <div class="container-login100-form-btn">
+      <div class="wrap-login100-form-btn">
+        <div class="login100-form-bgbtn"></div>
+        <button class="btn auth-btn btn-info" type="submit">Registro</button>
+      </div>
+    </div>
+    <br>
+    <a routerLink="/auth/login" class="txt2">
+      Ir al login
+  </a>
+  </form>
+</div>

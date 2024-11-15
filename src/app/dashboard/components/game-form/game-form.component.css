@@ -1,0 +1,12 @@
+.game-form {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.is-invalid {
+    border-color: red;
+  }
+  
+  .is-invalid:focus {
+    outline: 1px solid red;
+  }

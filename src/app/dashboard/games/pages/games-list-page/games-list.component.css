@@ -1,0 +1,25 @@
+.search-container {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  
+  .search-container input {
+    padding: 10px;
+    width: 300px;
+    margin-right: 10px;
+  }
+  
+  .search-container button {
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #3390ee;
+    border-radius: 20px;
+  }
+
+  .search-container button:hover {
+    background-color: #80a8d1; 
+    color: aliceblue;
+  }
+

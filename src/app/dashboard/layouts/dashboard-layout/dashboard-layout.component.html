@@ -1,0 +1,29 @@
+
+<div class="dashboard-container">
+  <button button type="button" class="btn-cerrar btn" (click)="onLogout()">Cerrar Sesión</button>
+<h3 class="welcome-message">Hola, {{ userName }}!</h3>
+
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link " routerLink="/dashboard/home" routerLinkActive="active">Inicio</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/dashboard/games" routerLinkActive="active">Juegos</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/dashboard/favorites" routerLinkActive="active">Mis Favoritos</a>
+    </li>
+    
+</ul>
+<div class="container pt-2">
+    <router-outlet></router-outlet>
+</div>
+
+
+
+</div>
+
+
+  <div class="footer-container">
+      <span class="text-muted">© Alba Martin 2024</span>
+  </div>

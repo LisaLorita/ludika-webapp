@@ -1,0 +1,21 @@
+<mat-card class="card card-container">
+    <mat-card-header class="card-header">
+      <mat-card-title class="card-title">{{ game.name }}</mat-card-title>
+      <button mat-icon-button aria-label="Editar juego" class="edit-button"  *ngIf="isAdmin" (click)="onEditGame()">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </mat-card-header>
+  
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item card-description">Descripción: {{ game.description }}</li>
+      <li class="list-group-item">Género: {{ game.genre }}</li>
+      <li class="list-group-item">Nº de jugadores: {{ game.players }}</li>
+      <li class="list-group-item">Edad recomendada: +{{ game.age }}</li>
+    </ul>
+  
+    <!-- Botón favoritos -->
+    <button mat-button (click)="onToggleFavorite()">
+      <mat-icon>{{ isFavorite ? 'favorite' : 'favorite_border' }}</mat-icon>
+    </button>
+  </mat-card>
+   

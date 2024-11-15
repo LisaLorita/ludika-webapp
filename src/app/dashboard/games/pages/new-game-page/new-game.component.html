@@ -1,0 +1,18 @@
+
+
+<!-- new-game.component.html -->
+<div class="new-game-container">
+  <h2>Crear un Nuevo Juego</h2>
+
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/dashboard/games">Juegos</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Nuevo juego</li>
+    </ol>
+  </nav>
+  
+  
+  <!-- Inserta el formulario usando el selector de GameFormComponent -->
+  <app-game-form (save)="onGameSave($event)"></app-game-form>
+</div>
+  

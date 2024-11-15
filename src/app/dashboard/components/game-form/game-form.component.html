@@ -1,0 +1,52 @@
+<form [formGroup]="gameForm" (ngSubmit)="onSubmit()" class="row g-3 game-form" >
+<div class="col-md-6">
+  <label class="form-label">Titulo</label>
+  <input type="text" class="form-control" formControlName="name" [ngClass]="{'is-invalid': gameForm.get('name')?.invalid && gameForm.get('name')?.touched}" required>
+</div>
+<div class="col-md-6">
+  <label for="inputState" class="form-label">Género</label>
+  <select id="inputState" class="form-select" formControlName="genre" [ngClass]="{'is-invalid': gameForm.get('genre')?.invalid && gameForm.get('genre')?.touched}" required>
+    <option value="" disabled selected>Seleccione un género</option>
+    <option value="Strategy">Estrategia</option>
+    <option value="Card">Cartas</option>
+    <option value="Dice">Dados</option>
+    <option value="Party">Party</option>
+    <option value="Role-Playing">Rol</option>
+    <option value="Cooperative">Cooperativo</option>
+    <option value="Puzzle">Puzzle</option>
+    <option value="Abstract">Abstracto</option>
+    <option value="Educational">Educativo</option>
+    <option value="Trivia">Trivial</option>            
+  </select>
+</div>
+<div class="col-12">
+  <label for="inputDescription" class="form-label">Descripción</label>
+  <textarea type="text" class="form-control" id="inputDescription" formControlName="description" [ngClass]="{'is-invalid': gameForm.get('description')?.invalid && gameForm.get('description')?.touched}" required></textarea>
+</div>
+<div class="col-md-3">
+  <label for="inputPlayers" class="form-label">Número de jugadores</label>
+  <input type="text" class="form-control" id="inputPlayers" min="1" formControlName="players" [ngClass]="{'is-invalid': gameForm.get('players')?.invalid && gameForm.get('players')?.touched}" required>
+</div>
+<div class="col-md-3">
+  <label for="inputAge" class="form-label">Edad mínima</label>
+  <input type="text" class="form-control" id="inputAge" formControlName="age" [ngClass]="{'is-invalid': gameForm.get('age')?.invalid && gameForm.get('age')?.touched}" required>
+</div>
+<div class="col-md-3">
+  <label for="inputDate" class="form-label">Fecha de lanzamiento</label>
+  <input type="date" class="form-control" id="inputDate" formControlName="year" [ngClass]="{'is-invalid': gameForm.get('year')?.invalid && gameForm.get('year')?.touched}" required>
+</div>
+<div class="col-md-3">
+  <label for="inputState" class="form-label">Descatalogado</label>
+  <select id="inputState" class="form-select" formControlName="isDiscontinued" 
+          [ngClass]="{'is-invalid': gameForm.get('isDiscontinued')?.invalid && gameForm.get('isDiscontinued')?.touched}" 
+          required>
+    <option value="" disabled selected>Seleccione</option>
+    <option [value]="false">No</option> 
+    <option [value]="true">Sí</option>
+  </select>
+</div>
+<div class="col-12">
+  <button type="submit" class="btn btn-dashboard">Guardar</button>
+</div>
+</form>
+
