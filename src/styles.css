@@ -163,7 +163,7 @@ label {
 
 .dashboard-container {
  padding-left: 60px;
- height: 100vh;
+ height: 100%;
  width: 90vw;
 }
 
