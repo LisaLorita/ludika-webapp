@@ -34,4 +34,8 @@ export class GameService {
   updateGame(id: string, gameData: Partial<Game>): Observable<Game> {
     return this.http.patch<Game>(`${this.baseUrl}/api/games/${id}`, gameData);
   }
+
+  deleteGame(id: string): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/api/games/${id}`);
+  }
 }

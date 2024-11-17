@@ -7,5 +7,9 @@
       <li class="breadcrumb-item active" aria-current="page">Actualizar juego</li>
     </ol>
   </nav>
-  <app-game-form [gameForm]="gameForm" (save)="onUpdateGame($event)"></app-game-form>
+  <app-game-form 
+  [gameForm]="gameForm" 
+  [gameId]="selectedGameId"
+  (save)="onUpdateGame($event)" 
+  (delete)="onDelete($event)" ></app-game-form>
 </div>

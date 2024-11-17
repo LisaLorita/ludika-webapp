@@ -24,7 +24,7 @@
   <textarea type="text" class="form-control" id="inputDescription" formControlName="description" [ngClass]="{'is-invalid': gameForm.get('description')?.invalid && gameForm.get('description')?.touched}" required></textarea>
 </div>
 <div class="col-md-3">
-  <label for="inputPlayers" class="form-label">Número de jugadores</label>
+  <label for="inputPlayers" class="form-label">Nº máx. de jugadores</label>
   <input type="text" class="form-control" id="inputPlayers" min="1" formControlName="players" [ngClass]="{'is-invalid': gameForm.get('players')?.invalid && gameForm.get('players')?.touched}" required>
 </div>
 <div class="col-md-3">
@@ -47,6 +47,7 @@
 </div>
 <div class="col-12">
   <button type="submit" class="btn btn-dashboard">Guardar</button>
+  <button type="button" class="btn btn-dashboard" (click)="onDelete()">Eliminar juego</button>
 </div>
 </form>
 

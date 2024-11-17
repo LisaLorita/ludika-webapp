@@ -12,6 +12,7 @@ import Swal from 'sweetalert2';
 })
 export class UpdateGameComponent implements OnInit {
   gameForm: FormGroup;
+  selectedGameId: string | null = null;
 
   constructor(
     private route: ActivatedRoute,
@@ -24,8 +25,8 @@ export class UpdateGameComponent implements OnInit {
       name: ['', Validators.required],
       description: ['', Validators.required],
       genre: ['', Validators.required],
-      players: [0, [Validators.required, Validators.min(1)]],
-      age: [0, [Validators.required, Validators.min(1)]],
+      players: [0, [Validators.required, Validators.pattern('^[0-9]+$')]],
+      age: [0, [Validators.required, Validators.pattern('^[0-9]+$')]],
       year: ['', Validators.required],
       isDiscontinued: [false, Validators.required]
     });
@@ -34,6 +35,8 @@ export class UpdateGameComponent implements OnInit {
   ngOnInit(): void {
     const gameId = this.route.snapshot.paramMap.get('id');
     if (gameId) {
+      this.selectedGameId = gameId;
+      console.log('Juego seleccionado:', gameId);
       this.loadGame(gameId);
     }
   }
@@ -63,11 +66,28 @@ export class UpdateGameComponent implements OnInit {
         },
         error: (error) => {
           console.error('Error al actualizar el juego:', error);
+          this.router.navigate(['/dashboard/games']); // Redirigir a la lista de juegos
+          Swal.fire('Juego no actualizado', 'El juego no ha sido actualizado', 'error');
         }
       });
     }
   }
   
+  onDelete(gameId: string): void {
+    console.log('Juego a eliminar:', gameId);
+    this.gameService.deleteGame(gameId).subscribe({
+      next: () => {
+        console.log('Juego eliminado con éxito');
+        this.router.navigate(['/dashboard/games']);
+        Swal.fire('Juego eliminado', 'El juego ha sido eliminado con exito', 'success');
+      },
+      error: (error) => {
+        console.error('Error al eliminar el juego:', error);
+        this.router.navigate(['/dashboard/games']);
+        Swal.fire('Juego no actualizado', 'El juego no ha sido actualizado', 'error');
+      }
+    })
+  }
 
   formatDateToInput(value: string): string {
     const date = new Date(value);

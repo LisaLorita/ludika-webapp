@@ -10,15 +10,17 @@ import { Game } from '../../interfaces/game.interface';
 export class GameFormComponent {
   private fb = inject(FormBuilder);
   @Output() save = new EventEmitter<Game>(); 
+  @Output() delete = new EventEmitter<string>();
   @Input() gameForm!: FormGroup;
+  @Input() gameId: string | null = null;
 
 constructor() {
   this.gameForm = this.fb.group({
     name: ['', Validators.required],
     description: ['', Validators.required],
     genre: ['', Validators.required],
-    players: ['', [Validators.required, Validators.min(0)]],
-    age: ['', [Validators.required, Validators.min(0)]],
+    players: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
+    age: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
     year: ['', Validators.required],
     isDiscontinued: ['', Validators.required]
   });
@@ -37,6 +39,16 @@ constructor() {
       console.log('Datos del juego a guardar:', gameData);
       this.save.emit(gameData as Game); // Emitir el objeto Game
       this.gameForm.reset(); 
+    }
+  }
+
+  onDelete():void{
+    console.log('Pulsado para eliminar juego');
+    if (this.gameId) {
+      console.log('Eliminando juego con id:', this.gameId);
+      this.delete.emit(this.gameId);
+    } else {
+      console.log('No se pudo obtener el ID del juego');
     }
   }
 }
