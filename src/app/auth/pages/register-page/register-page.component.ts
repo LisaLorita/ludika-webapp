@@ -37,6 +37,7 @@ export class RegisterPageComponent {
         this.router.navigate(['/dashboard']);
       },
       error: () => {
+        Swal.fire('Error al crear el usuario', '', 'error');
         this.showError = true;
       },
     });
